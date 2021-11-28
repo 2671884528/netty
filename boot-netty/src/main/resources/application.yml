@@ -1,0 +1,15 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: nettyServer
+
+netty:
+  port: 8080
+logging:
+  file:
+    path: /logs
+  level:
+    root: info
+  pattern:
+    console: "%blue(-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}) %green(traceId[%X{X-B3-TraceId:-}]) %clr(${PID:- }){magenta} %clr(---){faint} %yellow(%clr([%15.15t]){faint}) %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n"
