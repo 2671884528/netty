@@ -22,8 +22,10 @@ public class NettyChannelHandler extends ChannelInitializer<NioSocketChannel> {
     @Override
     protected void initChannel(NioSocketChannel ch) throws Exception {
         // 识别换行符为一个消息【具体需要和客户端定专有的协议，这里是通用】
-//        ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+        //  ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
         ch.pipeline().addLast(new LoggingHandler());
         ch.pipeline().addLast(serverInboundHandler);
+        // 字节流日志
+        ch.pipeline().addLast(new LoggingHandler());
     }
 }
